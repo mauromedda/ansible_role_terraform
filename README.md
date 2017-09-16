@@ -57,8 +57,6 @@ terraform_cleanup: true
  * terraform_cleanup: Remove the Terraform distribution archive. Default: true
 
 
-```
-
 
 Example Playbook
 ----------------
