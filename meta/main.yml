@@ -1,0 +1,21 @@
+galaxy_info:
+  author: Mauro Medda
+  description: An Ansible role for installing Terraform
+
+  license: BSD
+
+  min_ansible_version: 2.2
+
+  platforms:
+  - name: RedHat Enterprise Linux
+    versions:
+    - 7.2
+    - 7.3
+    - 7.4
+  - name: CentOS
+    versions:
+    - 7.2
+    - 7.3
+    - 7.4
+
+  galaxy_tags: [ "RedHat", "CentOS", "terraform" ]

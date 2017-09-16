@@ -1,0 +1,21 @@
+---
+sudo: true
+services: docker
+
+env:
+  - distro: centos7
+
+before_install:
+  - sudo apt-get install -y make
+
+script:
+  - container_id=$(date +%s)
+  # Download test shim.
+  - wget -O ${PWD}/Makefile https://raw.githubusercontent.com/mauromedda/ansible-centos7-ci/master/tests/Makefile
+  - cd ${PWD}
+
+  # Run tests.
+  - CONTAINER_ID=${container_id} make
+
+notifications:
+  webhooks: https://galaxy.ansible.com/api/v1/notifications/

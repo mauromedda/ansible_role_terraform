@@ -1,0 +1,35 @@
+---
+# tasks file for ansible_role_terraform
+
+- name: "PRELIM | Check the current terraform version"
+  stat:
+    path: '/opt/hashicorp/terraform/{{ terraform_version }}'
+  register: terraform_current
+  changed_when: false
+  check_mode: no
+  tags:
+    - install
+    - purge_old
+    - cleanup
+
+- name: "PRELIM | Get current version symlink"
+  stat:
+    path: '/usr/bin/terraform'
+  register: current_version
+  changed_when: false
+  check_mode: no
+  tags:
+    - install
+    - purge_old
+    - cleanup
+
+- name: "PRELIM | Ensure that requirements are satisfied"
+  yum:
+    name: "{{ item }}"
+  with_items:
+    - "{{ terraform_requirements }}"
+  tags:
+    - install
+    - purge_old
+    - cleanup
+

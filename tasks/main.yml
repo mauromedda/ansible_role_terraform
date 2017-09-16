@@ -1,0 +1,15 @@
+---
+# tasks file for ansible_role_terraform
+
+- name: Fail if not on EL like distro
+  fail:
+    msg: "Not supported operating system"
+  when: ansible_os_family != "RedHat"
+
+- include: prelim.yml
+
+- include: install.yml
+  when: terraform_current.stat.exists == false
+
+- include: purge-old.yml
+  when: terraform_purge_old == true

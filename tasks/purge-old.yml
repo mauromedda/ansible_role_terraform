@@ -1,0 +1,23 @@
+# terraform plays to purge old version
+
+- name: Terragrunt | Get old installation
+  shell: ls -1 "{{ terraform_base_install_dir }}/"
+  register: old_contents
+  changed_when: false
+  tags:
+    - install
+    - purge_old
+
+- name: Terraform | Delete old installation
+  file:
+     dest: "{{ terraform_base_install_dir }}/{{ item }}"
+     state: absent
+  with_items: "{{ old_contents.stdout_lines }}"
+  when:
+     - item not in ( inst_current_version.src | default(current_version.stat.lnk_source) )
+     - item not in ( inst_current_version.dest | default(current_version.stat.path) )
+     - terraform_purge_old == true
+     - old_contents.stdout_lines
+  tags:
+    - install
+    - purge_old

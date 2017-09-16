@@ -1,0 +1,52 @@
+---
+# tasks file for ansible_role_terraform
+
+- name: "Terraform | Create a version specific directory"
+  file:
+    path: '{{ terraform_base_install_dir }}/{{ terraform_version }}'
+    state: directory
+    mode: 0755
+  tags:
+    - install
+    - create_dir
+
+- name: "Terraform | Check if terraform_install_path exists"
+  stat:
+    path: '{{ terraform_base_install_dir }}/{{ terraform_version }}'
+  check_mode: false
+  register: terraform_install_path_st
+
+- name: "Terraform | Unarchive Terraform"
+  unarchive:
+    remote_src: true
+    src: '{{ terraform_repo_url }}'
+    dest: '{{ terraform_base_install_dir }}/{{ terraform_version }}'
+    creates: '{{ terraform_base_install_dir }}/{{ terraform_version }}/terraform'
+    mode: 0555
+  when: terraform_install_path_st.stat.exists and terraform_install_path_st.stat.isdir
+  register: terraform_unarchive
+  tags:
+    - install
+    - download
+    - unarchive
+
+- name: "Terraform | Link the current terraform version"
+  file:
+    src: '{{ terraform_base_install_dir }}/{{ terraform_version }}/terraform'
+    dest: '{{ terraform_bin }}'
+    state: link
+  when: terraform_unarchive.changed == True
+  register: inst_current_version
+  tags:
+    - install
+    - link
+    - skip_ansible_lint
+
+- name: "Terraform | Clean-up installation files"
+  file:
+    path: '{{ terraform_dist_file }}'
+    state: absent
+  when: terraform_cleanup
+  tags:
+    - install
+    - cleanup
