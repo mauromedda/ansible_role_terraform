@@ -68,8 +68,14 @@ Example Playbook
     connection: local
 
       roles:
-          - ansible_role_terraform
+          - mauromedda.ansible_role_terraform
 ```
+
+Usage
+-----
+
+[![asciicast](https://asciinema.org/a/kTZCGC3aQeioJBN22wyqU1zoo?autoplay=1&preload=1)](https://asciinema.org/a/kTZCGC3aQeioJBN22wyqU1zoo?autoplay=1&preload=1)
+
 
 License
 -------
