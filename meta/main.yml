@@ -7,15 +7,8 @@ galaxy_info:
   min_ansible_version: 2.2
 
   platforms:
-  - name: RedHat Enterprise Linux
+  - name: EL
     versions:
-    - 7.2
-    - 7.3
-    - 7.4
-  - name: CentOS
-    versions:
-    - 7.2
-    - 7.3
-    - 7.4
+    - 7
 
   galaxy_tags: [ "RedHat", "CentOS", "terraform" ]
