@@ -74,7 +74,7 @@ Example Playbook
 Usage
 -----
 
-[![Terraform_role](https://asciinema.org/a/kTZCGC3aQeioJBN22wyqU1zoo.gif)](https://asciinema.org/a/kTZCGC3aQeioJBN22wyqU1zoo?autoplay=1&preload=1&speed=3)
+[![Terraform_role](https://asciinema.org/a/kTZCGC3aQeioJBN22wyqU1zoo.png)](https://asciinema.org/a/kTZCGC3aQeioJBN22wyqU1zoo?autoplay=1&preload=1&speed=2)
 
 
 License
