@@ -1,12 +1,13 @@
 # terraform plays to purge old version
 
-- name: Terragrunt | Get old installation
+- name: Terraform | Get old installation
   shell: ls -1 "{{ terraform_base_install_dir }}/"
   register: old_contents
   changed_when: false
   tags:
     - install
     - purge_old
+    - skip_ansible_lint
 
 - name: Terraform | Delete old installation
   file:
