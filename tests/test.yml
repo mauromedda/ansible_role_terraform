@@ -4,4 +4,4 @@
   connection: local
 
   roles:
-    - ansible_role_terraform
+    - role_under_test
