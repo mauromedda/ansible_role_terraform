@@ -65,11 +65,11 @@ Example Playbook
 ---
 - hosts: localhost
   become: true
-    connection: local
+  connection: local
 
-      roles:
-          - mauromedda.ansible_role_unzip
-          - mauromedda.ansible_role_terraform
+  roles:
+    - mauromedda.ansible_role_unzip
+    - mauromedda.ansible_role_terraform
 ```
 
 Usage
