@@ -13,5 +13,5 @@ galaxy_info:
 
   galaxy_tags: [ "RedHat", "CentOS", "terraform" ]
 
-  dependencies:
-    - mauromedda.ansible_role_unzip
+dependencies:
+  - src: mauromedda.ansible_role_unzip

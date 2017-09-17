@@ -4,5 +4,8 @@
 - Includes a pretty video usage documentation
 - CI enabled
 
-## v1.0.1
+## v1.1
 - Move the dependencies installation from task to role dependencies
+
+## v1.2
+- Fix meta-data
