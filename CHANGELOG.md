@@ -9,3 +9,6 @@
 
 ## v1.2
 - Fix meta-data
+
+## v1.2.1
+- Fix tests playbook. Add role key to the roles dictionaries
