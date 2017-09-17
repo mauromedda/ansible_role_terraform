@@ -68,6 +68,7 @@ Example Playbook
     connection: local
 
       roles:
+          - mauromedda.ansible_role_unzip
           - mauromedda.ansible_role_terraform
 ```
 
