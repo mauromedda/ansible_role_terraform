@@ -6,7 +6,5 @@ terraform_dist_file: "terraform_{{terraform_version}}_linux_amd64.zip"
 terraform_repo_url: "https://releases.hashicorp.com/terraform/{{terraform_version}}/{{ terraform_dist_file }}"
 terraform_base_install_dir: /opt/hashicorp/terraform
 terraform_bin: /usr/bin/terraform
-terraform_requirements:
-  - unzip
 terraform_purge_old: true
 terraform_cleanup: true
