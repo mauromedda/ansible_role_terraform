@@ -11,6 +11,7 @@
     - install
     - purge_old
     - cleanup
+    - terraform
 
 - name: "PRELIM | Get current version symlink"
   stat:
@@ -22,3 +23,4 @@
     - install
     - purge_old
     - cleanup
+    - terraform

@@ -9,12 +9,17 @@
   tags:
     - install
     - create_dir
+    - terraform
 
 - name: "Terraform | Check if terraform_install_path exists"
   stat:
     path: '{{ terraform_base_install_dir }}/{{ terraform_version }}'
   check_mode: false
   register: terraform_install_path_st
+  tags:
+    - install
+    - create_dir
+    - terraform
 
 - name: "Terraform | Unarchive Terraform"
   unarchive:
@@ -29,6 +34,7 @@
     - install
     - download
     - unarchive
+    - terraform
 
 - name: "Terraform | Link the current terraform version"
   file:
@@ -41,6 +47,7 @@
     - install
     - link
     - skip_ansible_lint
+    - terraform
 
 - name: "Terraform | Clean-up installation files"
   file:
@@ -50,3 +57,4 @@
   tags:
     - install
     - cleanup
+    - terraform
